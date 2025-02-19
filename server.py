@@ -1,16 +1,16 @@
 import streamlit as st
 from fastai.vision.all import *
 
-def extract_number(path):
+def extract_flower(path):
     parts = str(path).split("/")
     return parts[5]
 
 model = load_learner("flower_model.pkl")
 
-def predict(img):
-    img = PILImage.create(img_path)
+def predict(path):
+    img = PILImage.create(path)
 
-    result = model.predict(img_path)
+    result = model.predict(path)
     print(result)
 
     flower = result[0]
